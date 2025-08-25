@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import { FaRegHeart, FaLongArrowAltRight } from "react-icons/fa";
 import { MdOutlineShoppingCart } from "react-icons/md";
@@ -90,14 +91,15 @@ const items = [
   },
 ];
 
-const Home = () => {
+const Hero = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div
         className="flex justify-around "
         style={{ backgroundColor: "#ffe26e" }}
       >
-        <div className="p-10 mt-25 space-y-5">
+        <div className="p-10 lg:mt-25   space-y-5">
           <div className="font-medium text-xl">
             <h1>UP TO 15% DISCOUNT</h1>
           </div>
@@ -108,13 +110,16 @@ const Home = () => {
           </div>
 
           <div className="font-bold">
-            <button className="border w-50 h-13 rounded-[20px] hover:bg-black hover:text-white  transition-all duration-200">
+            <button
+              onClick={() => navigate("/shop")}
+              className="border w-50 h-13 rounded-[20px] hover:bg-black hover:text-white transition-all duration-200"
+            >
               SHOP NOW
             </button>
           </div>
         </div>
 
-        <div>
+        <div className="hidden lg:block">
           <img src={myImage} alt="My Image" />
         </div>
       </div>
@@ -201,4 +206,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Hero;
